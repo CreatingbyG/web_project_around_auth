@@ -1,3 +1,5 @@
+const parse5 = require('parse5');
+
 import React, { useState, useEffect } from "react";
 
 import vector from "../images/Vector (3).svg";
