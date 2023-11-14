@@ -1,4 +1,3 @@
-const parse5 = require('parse5');
 import React from "react";
 import "../vendor/normalize.css";
 import "../fonts/inter.css";

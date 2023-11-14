@@ -1,4 +1,4 @@
-const parse5 = require('parse5');
+
 
 import React from "react";
 import closeButton from "../images/close_button.svg";
