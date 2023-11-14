@@ -1,3 +1,5 @@
+const parse5 = require('parse5');
+
 import React from "react";
 import trash from "../images/Trash.svg";
 

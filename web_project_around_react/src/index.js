@@ -1,3 +1,5 @@
+const parse5 = require('parse5');
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../src/components/index.css";
