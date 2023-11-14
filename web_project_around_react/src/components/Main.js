@@ -185,7 +185,7 @@ function AppMain() {
             type="url"
             id="avatar-input"
             name="link"
-            className="popup__container-texts-input-link popup__container-texts-input-link-edit form__input"
+            className="popup__container-texts-input-link form__input"
             placeholder="Enlace a la url"
             required
           />
