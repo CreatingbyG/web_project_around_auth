@@ -1,0 +1,13 @@
+.popup__container-img{
+  position: relative;
+  width: 100%;
+}
+
+.img-card-name{
+  color: white;
+  margin: 0px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
