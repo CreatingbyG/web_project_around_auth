@@ -10,7 +10,7 @@ import api from "../utils/api.js";
 import Card from "./Card.js";
 import ImagePopup from "./ImagePopup.js";
 
-function AppMain() {
+function Main() {
   const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
   const [isPlacePopupOpen, setIsPlacePopupOpen] = useState(false);
   const [isAvatarPopupOpen, setIsAvatarPopupOpen] = useState(false);
@@ -200,4 +200,4 @@ function AppMain() {
   );
 }
 
-export default AppMain;
+export default Main;
