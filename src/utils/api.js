@@ -1,6 +1,3 @@
-
-import React from "react";
-
 class Api {
   constructor() {
     this._token = "64bdc8e1-28e5-4d06-acdb-847b17c56560";

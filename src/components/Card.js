@@ -3,8 +3,8 @@
 import React from "react";
 import trash from "../images/Trash.svg";
 
-function Card({ cards, onCardClick, onDeleteCard }) {
-  return cards.map((card) => (
+function Card({ card, onCardClick, onDeleteCard }) {
+  return (
     <div className="card" onClick={() => onCardClick(card)}>
       <div className="card__image">
         <img
@@ -31,7 +31,7 @@ function Card({ cards, onCardClick, onDeleteCard }) {
         {card.likes.length > 0 ? card.likes.length : [""]}
       </div>
     </div>
-  ));
+  );
 }
 
 export default Card;
