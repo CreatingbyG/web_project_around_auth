@@ -56,7 +56,6 @@ function Main() {
       .getCards()
       .then((data) => {
         setCards(data);
-        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -104,13 +103,15 @@ function Main() {
           onClick={handleAddPlaceClick}
         ></button>
       </section>
-      {/* <section className="contelements"></section> */}
       <section className="contelements">
+        {cards.map((card) => (
         <Card
-          cards={cards}
+        key={card._id}
+          card={card}
           onCardClick={handleCardClick}
           onDeleteCard={handleDeletingCardClick}
         />
+        ))}
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
       </section>
       {/* EDIT PROFILE MODAL */}
