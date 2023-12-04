@@ -2,7 +2,7 @@
 import React from "react";
 import closeButton from "../images/close_button.svg";
 
-function PopupWithForm({ name, title, children, isOpen, onClose, nameButton }) {
+function PopupWithForm({ name, title, children, isOpen, onClose, nameButton, onSubmit }) {
   return (
     <div className={`popup popup_type_${name} ${isOpen && "popup_opened"}`}>
       <form
@@ -10,6 +10,7 @@ function PopupWithForm({ name, title, children, isOpen, onClose, nameButton }) {
           name === "avatar" ? "popup__container-texts-edit" : ""
         } ${name === "deleting" ? "popup__container_deleting" : ""}`}
         noValidate
+        onSubmit={onSubmit}
       >
         <fieldset
           className={`popup__container-texts ${
@@ -31,10 +32,9 @@ function PopupWithForm({ name, title, children, isOpen, onClose, nameButton }) {
           </button>
         </fieldset>
         <fieldset className="popup__handlers">
-          <button
+          <button 
             type="submit"
             className="popup__handlers-button form__submit"
-            disabled
           >
             {nameButton}
           </button>
