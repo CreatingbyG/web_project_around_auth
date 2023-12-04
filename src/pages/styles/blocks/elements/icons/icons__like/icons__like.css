@@ -1,22 +1,3 @@
-/* .icons__like, .icons__like_like-dark {
-  position: absolute;
-  top: 30px;
-  right: 20px;
-  cursor: pointer;
-}
-
-.icons__like_like-dark{
-  display: none;
-}
-
-.hide{
-  display: none;
-}
-
-.show{
-  display: block;
-} */
-
 .icons__dislike{
   position: absolute;
   top: 30px;
@@ -28,7 +9,14 @@
   background-size: 20px 20px;
 }
 
-.icons__like{
+.icons__liked{
   background: url('../../../../../../images/Union.svg') no-repeat center / contain;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
 }
 
