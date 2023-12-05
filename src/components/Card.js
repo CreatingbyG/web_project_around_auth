@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import trash from "../images/Trash.svg";
 import iconLike from "../images/Group.svg"
-import CurrentUserContext from "./contexts/CurrentUserContext.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
 function Card({ card, onCardClick, onDeleteCard, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);

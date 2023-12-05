@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../vendor/normalize.css";
 import "../fonts/inter.css";
-import "./index.css";
+import "../index.css";
 import Header from "./Header.js";
 import Main from "./Main.js";
 import Footer from "./Footer.js";
 import api from "../utils/api.js";
-import CurrentUserContext from "./contexts/CurrentUserContext.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 import EditProfilePopup from "./EditProfilePopup.js"; 
 import EditAvatarPopup from "./EditAvatarPopup.js"; 
 import AddPlacePopup from "./AddPlacePopup.js";
