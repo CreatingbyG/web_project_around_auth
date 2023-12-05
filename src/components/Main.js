@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
 import vector from "../images/Vector (3).svg";
-import addButton from "../pages/styles/blocks/button/add-button/add-button.css";
-import editButton from "../pages/styles/blocks/button/edit-button/edit-button.css";
+import addButton from "../blocks/styles/blocks/button/add-button/add-button.css";
+import editButton from "../blocks/styles/blocks/button/edit-button/edit-button.css";
 import Card from "./Card.js";
 import ImagePopup from "./ImagePopup.js";
-import CurrentUserContext from "./contexts/CurrentUserContext.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
 
 
