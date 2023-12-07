@@ -5,17 +5,20 @@ class Api {
     this._url = `https://around.nomoreparties.co/v1/${this._groupId}/`;
   }
 
+  _handleResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
       method: `GET`,
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    });
+    }).then(this._handleResponse);
   }
 
   getCards() {
@@ -23,11 +26,7 @@ class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    });
+    }).then(this._handleResponse);
   }
 
   changeLikeCardStatus(cardId, likeStatus) {
@@ -36,12 +35,7 @@ class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleResponse);
   }
 
   deleteCard(cardId) {
@@ -50,12 +44,7 @@ class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleResponse);
   }
 
   setUserInfo({ name, about }) {
@@ -69,12 +58,7 @@ class Api {
         name,
         about
       })
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleResponse);
   }
 
   setUserAvatar(avatarUrl) {
@@ -87,12 +71,7 @@ class Api {
       body: JSON.stringify({
         avatar: avatarUrl
       })
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleResponse);
   }
 
   
@@ -107,12 +86,7 @@ class Api {
         name,
         link
       })
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleResponse);
   }
 }
 
