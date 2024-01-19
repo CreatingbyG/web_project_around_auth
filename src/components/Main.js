@@ -57,7 +57,7 @@ function Main({
         ></button>
       </section>
       <section className="cardelements">
-        {cards.map((card) => (
+        {cards && cards.map((card) => (
         <Card
         key={card._id}
           card={card}

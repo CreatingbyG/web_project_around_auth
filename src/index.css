@@ -4,6 +4,10 @@
 @import "./blocks/content/content.css";
 @import "./blocks/header/header.css";
 @import "./blocks/logo/logo.css";
+@import "./blocks/register/register.css";
+@import "./blocks/register/register__form/register__form_inputs/register__form_inputs.css";
+@import "./blocks/register/register__form-button/register__form-button.css";
+@import "./blocks/register/register__link/register__link.css";
 @import "./blocks/page/page.css";
 @import "./blocks/profile/profile.css";
 @import "./blocks/profile/avatar/avatar.css";
