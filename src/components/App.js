@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route, useNavigate } from "react-router-dom";
 import "../vendor/normalize.css";
 import "../fonts/inter.css";
 import "../index.css";
@@ -12,12 +12,15 @@ import EditProfilePopup from "./EditProfilePopup.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 import ConfirmPopup from "./ConfirmPopup.js";
-import ProtectedRoute from "./ProtectedRoute.js"; // Asegúrate de que la ruta de importación sea correcta
-// import Login from './Login.js'; // Asegúrate de que la ruta de importación sea correcta
-import Register from "./Register.js"; // Asegúrate de que la ruta de importación sea correcta
+import ProtectedRoute from "./ProtectedRoute.js"; 
+import Login from './Login.js'; 
+import Register from "./Register.js";
+import { getUserToken } from "../utils/auth.js";
 
 function App() {
+  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
+  const [userEmail, setUserEmail] = useState('');
   const [cards, setCards] = useState([]);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isPlacePopupOpen, setIsPlacePopupOpen] = useState(false);
@@ -26,7 +29,7 @@ function App() {
     React.useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [cardToDelete, setCardToDelete] = useState(null);
-  const [isUserAuthorized, setIsUserAuthorized] = useState(true);
+  const [isUserAuthorized, setIsUserAuthorized] = useState(false);
 
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
@@ -74,6 +77,42 @@ function App() {
     setSelectedCard(card);
   };
 
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      getUserToken(jwt).then((res) => {
+        if (res) {
+          setIsUserAuthorized(true);
+          setUserEmail(res.data.data.email);
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }
+
+
+  const handleAuthorize = (email) => {
+    setIsUserAuthorized(true);
+    const token = localStorage.getItem('token');
+    getUserToken(token)
+      .then(data => {
+        setUserEmail(data.data.data.email);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem('jwt');
+    setIsUserAuthorized(false);
+    // Redirigir al usuario a la página de inicio de sesión o a la página principal
+    navigate('/signin');
+  };
+
   useEffect(() => {
     api
       .getCards()
@@ -81,6 +120,10 @@ function App() {
         setCards(data);
       })
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    tokenCheck();
   }, []);
 
   function handleUpdateUser({ name, about }) {
@@ -129,12 +172,14 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    // <Router>
       <CurrentUserContext.Provider value={currentUser}>
-      <Header />
+      <Header isUserAuthorized={isUserAuthorized} onSignOut={handleSignOut} userEmail={userEmail}/>
         <Routes>
           {/* Rutas de autenticación */}
           <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login onAuthorize={handleAuthorize} />} />
+          <Route path="*" element={<Login onAuthorize={handleAuthorize}/>} />
           <Route
             path="/"
             element={
@@ -180,7 +225,7 @@ function App() {
           />
         </>
       </CurrentUserContext.Provider>
-    </Router>
+    // </Router>
   );
 }
 

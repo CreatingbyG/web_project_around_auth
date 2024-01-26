@@ -1,23 +1,34 @@
-
-
-import React from "react";
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import logo from "../images/logo.svg.svg";
 
+const Header = ({ isUserAuthorized, onSignOut, userEmail }) => {
+  const location = useLocation();
+  const currentPage = location.pathname;
 
-const Header = ({ isUserAuthorized, currentPage }) => {
   return (
     <div className="header">
       <img className="logo" src={logo} alt="logo around the US" />
       <div className="navigation">
-        {/* {!isUserAuthorized && currentPage !== 'login' && (
-          <a className= "link" href="/login">Iniciar sesión</a>
-        )} */}
-        {!isUserAuthorized && currentPage !== 'register' && (
-          <a className="link" href="/register">Iniciar Sesion</a>
+        {!isUserAuthorized && (
+          <>
+          {currentPage === '/signin' && (
+            <Link className="link" to='/signup'>Regístrate</Link>
+          )}
+          {currentPage === '/signup' && (
+            <Link className="link" to='/signin'>Iniciar Sesión</Link>
+          )}
+          {(currentPage !== '/signin' && currentPage !== '/signup') && (
+            <Link className="link" to='/signup'>Registrate</Link>
+          )}
+        </>
         )}
-        {/* {isAuthenticated && (
-          <a className="link" href="/logout">Cerrar sesión</a>
-        )} */}
+        {isUserAuthorized && currentPage === '/' && (
+          <>
+            <span className="user-email">{userEmail}</span>
+            <Link className="link" onClick={onSignOut}>Cerrar sesión</Link>
+          </>
+        )}
       </div>
       <div className="line"></div>
     </div>

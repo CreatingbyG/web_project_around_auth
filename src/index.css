@@ -3,10 +3,12 @@
 @import "./blocks/button/edit-button/edit-button.css";
 @import "./blocks/content/content.css";
 @import "./blocks/header/header.css";
+@import "./blocks/header/user-email/user-email.css";
 @import "./blocks/logo/logo.css";
 @import "./blocks/register/register.css";
 @import "./blocks/register/register__form/register__form_inputs/register__form_inputs.css";
 @import "./blocks/register/register__form-button/register__form-button.css";
+@import "./blocks/register/direction-link/direction-link.css";
 @import "./blocks/register/register__link/register__link.css";
 @import "./blocks/page/page.css";
 @import "./blocks/profile/profile.css";
@@ -28,6 +30,8 @@
 @import "./blocks/popup/popupform/popupform.css";
 @import "./blocks/popup/popup_opened/popup_opened.css";
 @import "./blocks/popup/popup__container/popup__container.css";
+@import "./blocks/popup/popup__container-register/popup__container-register.css";
+@import "./blocks/popup/popup__container-register/popup__container-register_text/popup__container-register_text.css";
 @import "./blocks/popup/popup__container_deleting/popup__container_deleting.css";
 @import "./blocks/popup/popup__container_edit/popup__container_edit.css";
 @import "./blocks/popup/popup__container-texts/popup__container-texts.css";
@@ -39,6 +43,7 @@
 @import "./blocks/popup/popup__container-btn-closed-edit/popup__container-btn-closed-edit.css";
 @import "./blocks/popup/popup__container-btn-closed_images/popup__container-btn-closed_images.css";
 @import "./blocks/popup/popup__container-btn-closed-deleting/popup__container-btn-closed-deleting.css";
+@import "./blocks/popup/popup__container-btn-closed_register/popup__container-btn-closed_register.css";
 @import "./blocks/popup/popup__handlers/popup__handlers.css";
 @import "./blocks/popup/popup__handlers-button/popup__handlers-button.css";
 @import "./blocks/imgcontainer/img__container.css";
