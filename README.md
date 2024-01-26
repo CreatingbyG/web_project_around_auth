@@ -18,8 +18,6 @@ npm run build
 Construye la aplicación para producción en la carpeta build.\
 Agrupa correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-La compilación está minimizada y los nombres de archivo incluyen los hashes.\
-¡Tu aplicación está lista para ser desplegada!
 
 Consulta la sección sobre despliegue para obtener más información.
 Funcionalidades del Proyecto
